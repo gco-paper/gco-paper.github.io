@@ -157,63 +157,41 @@
   </div>
 </section>
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/slalom_front_r9o4.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Balancing flow-matching discrete-continuous co-generation with scalable multi-robot motion planning enables flexible multi-robot manipulation.
-      </h2>
-    </div>
-  </div>
-</section>
 
 
 
 <section class="hero is-light is-small">
   <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-shelves">
-          <video poster="" id="shelves" autoplay muted loop playsinline height="100%">
-            <source src="./static/videos/wall_front_r5o3.mp4"
-                    type="video/mp4">
+    <div class="container is-max-desktop">
+      <div class="video-matrix">
+        <div class="video-item">
+          <video poster="" autoplay muted loop playsinline>
+            <source src="./static/videos/wall_front_r5o3.mp4" type="video/mp4">
           </video>
+          <div class="video-caption">Five robots manipulate three objects. Robots avoid a wall and switch objects as necessary</div>
         </div>
-        <div class="item item-binpick">
-          <video poster="" id="binpick" autoplay muted loop playsinline height="100%">
-            <source src="./static/videos/empty_front_r3o2.mp4"
-                    type="video/mp4">
+        <div class="video-item">
+          <video poster="" autoplay muted loop playsinline>
+            <source src="./static/videos/empty_front_r3o2.mp4" type="video/mp4">
           </video>
+          <div class="video-caption">Three robots manipulate two objects around a small obstacle.</div>
         </div>
-        <div class="item item-ten">
-          <video poster="" id="ten" autoplay muted loop playsinline height="100%">
-            <source src="./static/videos/slalom_front_r9o4.mp4"
-                    type="video/mp4">
+        <div class="video-item">
+          <video poster="" autoplay muted loop playsinline>
+            <source src="./static/videos/slalom_front_r9o4.mp4" type="video/mp4">
           </video>
+          <div class="video-caption">Long horizon manipulation in clutter, with nine robots and four objects.</div>
         </div>
-        <div class="item item-eight">
-          <video poster="" id="eight" autoplay muted loop playsinline height="100%">
-            <source src="./static/videos/wall_front_r5o3.mp4"
-                    type="video/mp4">
+        <div class="video-item">
+          <video poster="" autoplay muted loop playsinline>
+            <source src="./static/videos/mj_slalom_small_r3o1.mp4" type="video/mp4" scale="0.5">
           </video>
-        </div>
-        <div class="item item-six">
-          <video poster="" id="six" autoplay muted loop playsinline height="100%">
-            <source src="./static/videos/empty_front_r3o2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-four">
-          <video poster="" id="four" autoplay muted loop playsinline height="100%">
-            <source src="./static/videos/slalom_front_r9o4.mp4"
-                    type="video/mp4">
-          </video>
+          <div class="video-caption">We trained our models on data collected in MujoCo. (This video is of an older version.)</div>
         </div>
       </div>
+      <h2 class="subtitle has-text-centered video-subtitle">
+        Balancing flow-matching discrete-continuous co-generation with scalable multi-robot motion planning enables flexible multi-robot manipulation.
+      </h2>
     </div>
   </div>
 </section>
