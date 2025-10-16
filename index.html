@@ -206,35 +206,52 @@
   </div>
 </section>
 
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Coordinating a team of robots to reposition multiple objects in cluttered environments requires reasoning jointly about where robots should establish contact, how to manipulate objects once contact is made, and how to navigate safely and efficiently at scale. Prior approaches typically fall into two extremes--either learning the entire task or relying on privileged information and hand-designed planners--both of which struggle to handle diverse objects in long-horizon tasks. To address these challenges, we present a unified framework for collaborative multi-robot, multi-object non-prehensile manipulation that integrates flow-matching co-generation with anonymous multi-robot motion planning. Within this framework, a generative model co-generates contact formations and manipulation trajectories from visual observations, while a novel motion planner conveys robots at scale. Crucially, the same planner also supports coordination at the object level, assigning manipulated objects to larger target structures and thereby unifying robot- and object-level reasoning within a single algorithmic framework. Experiments in challenging simulated environments demonstrate that our approach outperforms baselines in both motion planning and manipulation tasks, highlighting the benefits of generative co-design and integrated planning for scaling collaborative manipulation to complex multi-agent, multi-object settings.       </p>
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Model Variants Comparison</h2>
+      <div class="generation-videos-container">
+        <div class="generation-video-item dc-contribution">
+          <video autoplay muted loop playsinline>
+            <source src="./static/videos/dc_iteration_000_generation_animation.mp4" type="video/mp4">
+          </video>
+            <div class="generation-video-caption">
+              <h4 class="title is-5">GCo-DC <br>(Discrete-Continuous)</h4>
+              <p>Co-generates discrete contact points and continuous manipulation trajectories.</p>
+            </div>
+          </div>
+          <div class="generation-video-item cc-variant">
+            <video autoplay muted loop playsinline>
+              <source src="./static/videos/cc_iteration_000_generation_animation.mp4" type="video/mp4">
+            </video>
+            <div class="generation-video-caption">
+              <h4 class="title is-5">GCo-CC <br>(Continuous-Continuous)</h4>
+              <p>Co-generates continuous contact formations and continuous manipulation trajectories.</p>
+            </div>
+          </div>
+          <div class="generation-video-item ct-variant">
+            <video autoplay muted loop playsinline>
+              <source src="./static/videos/ct_iteration_000_generation_animation.mp4" type="video/mp4">
+            </video>
+            <div class="generation-video-caption">
+              <h4 class="title is-5">CT <br>(Continuous-Trajectory)</h4>
+              <p>Generates only an unconstrained continuous trajectory. The first configuration of the trajectory is treated as the contact point.</p>
+            </div>
+          </div>
+        </div>
+        <div class="generation-footnote">
+          <p><strong>Note:</strong> In these animations of GCo-DC and GCo-CC, trajectories are translated to begin at the contact points for visualization purposes. In practice, trajectories are generated with their initial configurations being the origin.</p>
+          <ul>
+            <li><strong>GCo-DC:</strong> Contact points are chosen from the perceived space as discrete choices over pixels.</li>
+            <li><strong>GCo-CC:</strong> Contact points remain unconstrained in the continuous space.</li>
+            <li><strong>CT:</strong> No explicit co-generation of contact formations.</li>
+          </ul>
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div> -->
-    <!--/ Paper video. -->
   </div>
 </section>
+
 
 
 <section class="section">
@@ -250,7 +267,7 @@
             <img src="./static/images/model_ill3.png" width="50%"
             class="model-illustration-image"
             alt="Model illustration."/>
-            In progress.
+            Our flow-matching co-generation framework addresses the fundamental challenge of jointly reasoning about contact formation and manipulation trajectories. The model takes visual observations of the environment, a robot budget, and a required transformation for the observed object, and co-generates discrete contact points alongside continuous manipulation trajectories. This dual representation ties contact planning to the perceptual space, avoiding reasoning over large continuous spaces unnecessarily, while maintaining flexibility for generating smooth manipulation trajectories.
           </p>
         </div>
       </div>
@@ -265,6 +282,9 @@
           <img src="./static/images/closeup.png"
               class="collaborative-image"
               alt="Collaborative result."/>
+          <p>
+            Our approach enables collaboration between multiple robots for manipulating multiple objects. GCo handles scenarios where the number of objects is greater than the number of robots and vice versa.
+          </p>
         </div>
       </div>
 
@@ -272,13 +292,12 @@
         <h3 class="title is-3">Long-Horizon</h3>
         <div class="columns is-centered">
           <div class="column content">
-            <p>
-              <br> 
-            </p>
             <img src="./static/images/slalom_env_crop.png"
                  class="long-horizon-image"
                  alt="Long-horizon result."/>
-            
+            <p>
+              The framework can handle long-horizon manipulation tasks in complex, cluttered environments. GC0 does so by learning the portions that are hard to model with flow-matching co-generation, and planning those that can be modeled well (object and robot non-interacting motions) with scalable motion planning.
+            </p>
           </div>
         </div>
       </div>
@@ -292,6 +311,22 @@
 
 <!-- <section class="section" id="BibTeX">
 </section> -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Coordinating a team of robots to reposition multiple objects in cluttered environments requires reasoning jointly about where robots should establish contact, how to manipulate objects once contact is made, and how to navigate safely and efficiently at scale. Prior approaches typically fall into two extremes--either learning the entire task or relying on privileged information and hand-designed planners--both of which struggle to handle diverse objects in long-horizon tasks. To address these challenges, we present a unified framework for collaborative multi-robot, multi-object non-prehensile manipulation that integrates flow-matching co-generation with anonymous multi-robot motion planning. Within this framework, a generative model co-generates contact formations and manipulation trajectories from visual observations, while a novel motion planner conveys robots at scale. Crucially, the same planner also supports coordination at the object level, assigning manipulated objects to larger target structures and thereby unifying robot- and object-level reasoning within a single algorithmic framework. Experiments in challenging simulated environments demonstrate that our approach outperforms baselines in both motion planning and manipulation tasks, highlighting the benefits of generative co-design and integrated planning for scaling collaborative manipulation to complex multi-agent, multi-object settings.       </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
 
 
 <footer class="footer">

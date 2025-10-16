@@ -260,10 +260,203 @@ body {
   line-height: 1.5;
 }
 
+/* Generation Videos Layout */
+.generation-videos-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.generation-video-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+}
+
+.generation-video-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Special styling for GCo-DC (main contribution) */
+.generation-video-item.dc-contribution {
+  border: 3px solid #667eea;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+  position: relative;
+}
+
+.generation-video-item.dc-contribution::before {
+  content: "★ Main Contribution";
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+}
+
+.generation-video-item.dc-contribution:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.4);
+}
+
+/* Styling for CC variant (less stable) */
+.generation-video-item.cc-variant {
+  border: 2px solid #f39c12;
+  box-shadow: 0 4px 20px rgba(243, 156, 18, 0.2);
+  position: relative;
+}
+
+.generation-video-item.cc-variant::before {
+  content: "⚠ Less Stable";
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(243, 156, 18, 0.4);
+}
+
+.generation-video-item.cc-variant:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 32px rgba(243, 156, 18, 0.3);
+}
+
+/* Styling for CT variant (least stable) */
+.generation-video-item.ct-variant {
+  border: 2px solid #e74c3c;
+  box-shadow: 0 4px 20px rgba(231, 76, 60, 0.2);
+  position: relative;
+}
+
+.generation-video-item.ct-variant::before {
+  content: "⚠ Least Stable";
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.4);
+}
+
+.generation-video-item.ct-variant:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 32px rgba(231, 76, 60, 0.3);
+}
+
+.generation-video-item video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px 12px 0 0;
+}
+
+.generation-video-caption {
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 0 0 12px 12px;
+}
+
+.generation-video-caption h4 {
+  margin-bottom: 8px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.generation-video-caption p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+/* Generation footnote styling */
+.generation-footnote {
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: rgba(248, 249, 250, 0.8);
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.generation-footnote p {
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.generation-footnote ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.generation-footnote li {
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.generation-footnote strong {
+  color: #2c3e50;
+  font-weight: 600;
+}
+
 /* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+  .generation-videos-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .video-matrix {
     grid-template-columns: 1fr;
     gap: 15px;
+  }
+  
+  .generation-videos-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  
+  .generation-video-caption {
+    padding: 12px 8px;
+  }
+  
+  .generation-video-caption h4 {
+    font-size: 0.9rem;
+  }
+  
+  .generation-video-caption p {
+    font-size: 12px;
   }
 }
