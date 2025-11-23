@@ -52,7 +52,6 @@
       <span class="icon">
           <i class="fas fa-home"></i>
       </span>
-      </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
@@ -79,7 +78,7 @@
 </nav> -->
 
 
-<section class="hero">
+<section class="hero" style="max-width:1200px; margin:1rem auto;">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
@@ -153,7 +152,7 @@
   </div>
 </section>
 
-<section class="hero teaser">
+<section class="hero teaser" style="max-width:1200px; margin:1rem auto;">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video id="gco-supplementary" controls playsinline height="100%">
@@ -170,7 +169,7 @@
 
 
 
-<section class="hero is-light is-small">
+<section class="hero is-light is-small" style="max-width:1200px; margin:1rem auto;">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="video-matrix">
@@ -206,7 +205,7 @@
   </div>
 </section>
 
-<section class="hero is-light is-small">
+<section class="hero is-light is-small" style="max-width:1200px; margin:1rem auto;">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Model Variants Comparison</h2>
@@ -244,7 +243,7 @@
           <ul>
             <li><strong>GCo-DC:</strong> Contact points are chosen from the perceived space as discrete choices over pixels.</li>
             <li><strong>GCo-CC:</strong> Contact points remain unconstrained in the continuous space.</li>
-            <li><strong>CT:</strong> No explicit co-generation of contact formations.</li>
+            <li><strong>GCo-CT:</strong> No explicit co-generation of contact formations.</li>
           </ul>
         </div>
       </div>
@@ -254,12 +253,12 @@
 
 
 
-<section class="section">
+<section class="section" style="max-width:1200px; margin:1rem auto;">
   <div class="container is-max-desktop">
 
     <!-- Experimentation. -->
     <div class="columns is-centered">
-      <div class="column is-full-width">
+      <div class="column is-full-width has-text-centered">
         <h2 class="title is-3">Flow-Matching Co-Generation</h2>
 
         <div class="content has-text-justified">
@@ -311,8 +310,270 @@
 
 <!-- <section class="section" id="BibTeX">
 </section> -->
+<section class="section" style="max-width:1200px; margin:1rem auto;">
+  <div class="container is-max-desktop">
+    <!-- Experiments video grid. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Experimental Results: Anonymous Multi-Robot Motion Planning</h2>
+        <img src="./static/videos/test_15_114.gif" width="80%"
+            class="model-illustration-image"
+            alt="Gspi visualization."/>
+        <br>
+        <p>In this work, one of our contributions is <b>Gspi</b>, an anonymous multi-robot motion planner. This section visualizes our experimental analysis of Gspi. In all tests, the initial assignment of robots to goals is random, and experiments have been repeated multiple times to ensure reliability. In some tests, we varied the number of robots to assess scalability. Please see our paper for details. Each visualization is annotated with the robot team-size within it.</p>
+        <br>
+        <div class="has-text-centered" style="margin-bottom: 1rem;">
+          <button id="toggle-rates" class="button is-small is-dark">Show success rates</button>
+        </div>
 
-<section class="section">
+
+        <!-- Row 1: Large Scale in Open Spaces -->
+        <h3 class="title is-4 has-text-centered">Stress Tests</h3>
+        <p>These are a few tests that push the limits of Gspi -- specifically attempting to test it in scenarios that require robustness to extreme robot and obstacle densities.</p>
+          <div class="columns is-multiline is-variable is-1">
+          <div class="column is-one-third has-text-centered">
+            <div class="card">
+              <div class="card-content">
+                <video autoplay muted loop playsinline style="width:100%; height:auto;">
+                  <source src="./static/videos/test_15_114.mp4" type="video/mp4">
+                </video>
+                <p class="has-text-weight-semibold" style="margin-top:.5rem;">Dense obstacles (114 robots).</p>
+                <table class="table is-fullwidth is-narrow success-table" style="display:none; font-size:0.85rem; margin-top:.5rem;">
+                  <thead>
+                    <tr><th>Method</th><th>Success</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Gspi</td><td>100%</td></tr>
+                    <tr><td>C-UNAV</td><td>0%</td></tr>
+                    <tr><td>TSWAP</td><td>0%</td></tr>
+                    <tr><td>PIBT</td><td>0%</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-one-third has-text-centered">
+            <div class="card">
+              <div class="card-content">
+                <video autoplay muted loop playsinline style="width:100%; height:auto;">
+                  <source src="./static/videos/test_13_57.mp4" type="video/mp4">
+                </video>
+                <p class="has-text-weight-semibold" style="margin-top:.5rem;">Dense obstacles (57 robots).</p>
+                <table class="table is-fullwidth is-narrow success-table" style="display:none; font-size:0.85rem; margin-top:.5rem;">
+                  <thead>
+                    <tr><th>Method</th><th>Success</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Gspi</td><td>100%</td></tr>
+                    <tr><td>C-UNAV</td><td>0%</td></tr>
+                    <tr><td>TSWAP</td><td>0%</td></tr>
+                    <tr><td>PIBT</td><td>0%</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-one-third has-text-centered">
+            <div class="card">
+              <div class="card-content">
+                <video autoplay muted loop playsinline style="width:100%; height:auto;">
+                  <source src="./static/videos/test_13_3.mp4" type="video/mp4">
+                </video>
+                <p class="has-text-weight-semibold" style="margin-top:.5rem;">Dense packing (3 robots).<br>Robots must move together.</p>
+                <table class="table is-fullwidth is-narrow success-table" style="display:none; font-size:0.85rem; margin-top:.5rem;">
+                  <thead>
+                    <tr><th>Method</th><th>Success</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Gspi</td><td>100%</td></tr>
+                    <tr><td>C-UNAV</td><td>0%</td></tr>
+                    <tr><td>TSWAP</td><td>0%</td></tr>
+                    <tr><td>PIBT</td><td>20%</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-one-third has-text-centered">
+            <div class="card">
+              <div class="card-content">
+                <video autoplay muted loop playsinline style="width:100%; height:auto;">
+                  <source src="./static/videos/test_10_9.mp4" type="video/mp4">
+                </video>
+                <p class="has-text-weight-semibold" style="margin-top:.5rem;">Dense packing escape (9 robots).</p>
+                <table class="table is-fullwidth is-narrow success-table" style="display:none; font-size:0.85rem; margin-top:.5rem;">
+                  <thead>
+                    <tr><th>Method</th><th>Success</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Gspi</td><td>100%</td></tr>
+                    <tr><td>C-UNAV</td><td>0%</td></tr>
+                    <tr><td>TSWAP</td><td>0%</td></tr>
+                    <tr><td>PIBT</td><td>0%</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-one-third has-text-centered">
+            <div class="card">
+              <div class="card-content">
+                <video autoplay muted loop playsinline style="width:100%; height:auto;">
+                  <source src="./static/videos/test_11_9.mp4" type="video/mp4">
+                </video>
+                <p class="has-text-weight-semibold" style="margin-top:.5rem;">Narrow Corridor (9 robots).</p>
+                <table class="table is-fullwidth is-narrow success-table" style="display:none; font-size:0.85rem; margin-top:.5rem;">
+                  <thead>
+                    <tr><th>Method</th><th>Success</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Gspi</td><td>100%</td></tr>
+                    <tr><td>C-UNAV</td><td>0%</td></tr>
+                    <tr><td>TSWAP</td><td>100%</td></tr>
+                    <tr><td>PIBT</td><td>0%</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-one-third has-text-centered">
+            <div class="card">
+              <div class="card-content">
+                <video autoplay muted loop playsinline style="width:100%; height:auto;">
+                  <source src="./static/videos/test_12_3.mp4" type="video/mp4">
+                </video>
+                <p class="has-text-weight-semibold" style="margin-top:.5rem;">Dense packing escape (3 robots).<br>Robots must move together.</p>
+                <table class="table is-fullwidth is-narrow success-table" style="display:none; font-size:0.85rem; margin-top:.5rem;">
+                  <thead>
+                    <tr><th>Method</th><th>Success</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Gspi</td><td>100%</td></tr>
+                    <tr><td>C-UNAV</td><td>0%</td></tr>
+                    <tr><td>TSWAP</td><td>0%</td></tr>
+                    <tr><td>PIBT</td><td>20%</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Cluttered -->
+        <h3 class="title is-4 has-text-centered">Obstacle-Rich Environments</h3>
+        <p>We evaluated Gspi in environments with numerous obstacles to test its navigation and goal-swapping capabilities in conditions that force robots into dense congestion. These settings are normally chalenging for multi-robot motion planning algorithms.</p>
+        <div class="columns is-multiline is-variable is-1">
+          <div class="column is-one-third has-text-centered">
+            <div class="card">
+              <div class="card-content">
+                <video autoplay muted loop playsinline style="width:100%; height:auto;">
+                  <source src="./static/videos/test_8_35.mp4" type="video/mp4">
+                </video>
+                <p class="has-text-weight-semibold" style="margin-top:.5rem;">Slalom (35 robots).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-one-third has-text-centered">
+            <div class="card">
+              <div class="card-content">
+                <video autoplay muted loop playsinline style="width:100%; height:auto;">
+                  <source src="./static/videos/test_5_56.mp4" type="video/mp4">
+                </video>
+                <p class="has-text-weight-semibold" style="margin-top:.5rem;">Circle Opening (56 robots).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-one-third has-text-centered">
+            <div class="card">
+              <div class="card-content">
+                <video autoplay muted loop playsinline style="width:100%; height:auto;">
+                  <source src="./static/videos/test_6_30.mp4" type="video/mp4">
+                </video>
+                <p class="has-text-weight-semibold" style="margin-top:.5rem;">Funnel (30 robots).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="column has-text-centered">
+              <img src="./static/images/gspi_results_obstacles.png" width="100%"
+                  alt="Gspi results summary in obstacle-rich environments."/>
+              <p class="has-text-weight-semibold" style="margin-top:.5rem;">Gspi results summary in obstacle-rich environments.</p>
+        </div>
+      </div>
+    </div>
+
+
+        <!-- Row 1: Large Scale in Open Spaces -->
+        <h3 class="title is-4 has-text-centered">Large Scale in Open Spaces</h3>
+        <p> We tested Gspi in large scale scenarios without obstacles to assess its ability to effectively swap goals between robots and streamline their movements. As always, all goals are initially assigend randomly to robots. Motions that look natural, or short, are a result of effective goal swapping.</p>
+          <div class="columns is-multiline is-variable is-1">
+          <div class="column is-one-third has-text-centered">
+            <div class="card">
+              <div class="card-content">
+                <video autoplay muted loop playsinline style="width:100%; height:auto;">
+                  <source src="./static/videos/test_0_300.mp4" type="video/mp4">
+                </video>
+                <p class="has-text-weight-semibold" style="margin-top:.5rem;">Circle to square (300 robots).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-one-third has-text-centered">
+            <div class="card">
+              <div class="card-content">
+                <video autoplay muted loop playsinline style="width:100%; height:auto;">
+                  <source src="./static/videos/test_1_150.mp4" type="video/mp4">
+                </video>
+                <p class="has-text-weight-semibold" style="margin-top:.5rem;">Square to circle (150 robots).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-one-third has-text-centered">
+            <div class="card">
+              <div class="card-content">
+                <video autoplay muted loop playsinline style="width:100%; height:auto;">
+                  <source src="./static/videos/test_2_150.mp4" type="video/mp4">
+                </video>
+                <p class="has-text-weight-semibold" style="margin-top:.5rem;">Square to Square (150 robots). The initial goal assignment is random.</p>
+              </div>
+            </div>
+          </div>
+        <div class="column  has-text-centered">
+              <img src="./static/images/gspi_results_freespace.png" width="100%"
+                  alt="Gspi results summary in obstacle-free environments."/>
+              <p class="has-text-weight-semibold" style="margin-top:.5rem;">Gspi results summary in obstacle-free environments.</p>
+        </div>
+        </div>
+
+
+    <script>
+      // Toggle visibility of the per-video success-rate tables.
+      (function(){
+        var btn = document.getElementById('toggle-rates');
+        if (!btn) return;
+        var shown = false;
+        btn.addEventListener('click', function(){
+          shown = !shown;
+          var tables = document.querySelectorAll('.success-table');
+          tables.forEach(function(t){ t.style.display = shown ? '' : 'none'; });
+          btn.textContent = shown ? 'Hide success rates' : 'Show success rates';
+        });
+      })();
+    </script>
+  </div>
+</section>
+    <!-- Abstract. -->
+
+<section class="section" style="max-width:1200px; margin:1rem auto;">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
