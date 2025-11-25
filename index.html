@@ -152,6 +152,7 @@
   </div>
 </section>
 
+<!-- Video summary. -->
 <section class="hero teaser" style="max-width:1200px; margin:1rem auto;">
   <div class="container is-max-desktop">
     <div class="hero-body">
@@ -159,8 +160,18 @@
           <source src="./static/videos/gco_video_supp.mp4" 
                   type="video/mp4">
       </video>
-      <h2 class="subtitle has-text-centered">
-        Video summary.
+      <h2 class="subtitle">
+In this work, we propose a unified framework for collaborative multi-robot, multi-object non-prehensile manipulation that combines flow-matching co-generation with anonymous multi-robot motion planning. Our contributions are mainly: 
+<br>
+<br>
+<li> The Generative Collaboration (<b>GCo</b>) framework, which interleaves generative modeling with model-based planning to exploit known structure while learning components that are difficult to model, and </li>
+<br>
+<br>
+<li> The Goal Swapping with Priority Inheritance (<b>Gspi</b>) algorithm, an anonymous multi-robot motion planner that supports <b>GCo</b> by planning object motions that make progress toward their goals and robot motions that reach the generated contact points.
+<br>
+<br>
+<li> A novel contact modeling approach with discrete-continuous flow-matching co-generation.
+</li>
       </h2>
     </div>
   </div>
@@ -168,10 +179,14 @@
 
 
 
-
+<!-- Manipulation Experiments. -->
 <section class="hero is-light is-small" style="max-width:1200px; margin:1rem auto;">
   <div class="hero-body">
     <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Multi-Robot Multi-Object Manipulation</h2>
+      <p>
+        Balancing flow-matching discrete-continuous co-generation with scalable multi-robot motion planning enables flexible multi-robot manipulation. We have evaluated <b>GCo</b> on increasingly complex manipulation tasks with up to nine robots, heterogeneous object shapes and types, and long horizon obstacle-laden scenes. <br><br>
+      </p>
       <div class="video-matrix">
         <div class="video-item">
           <video poster="" autoplay muted loop playsinline>
@@ -181,7 +196,7 @@
         </div>
         <div class="video-item">
           <video poster="" autoplay muted loop playsinline>
-            <source src="./static/videos/slalom_front_r9o4.mp4" type="video/mp4">
+            <source src="./static/videos/object_variation_placeholder.mp4" type="video/mp4">
           </video>
           <div class="video-caption">Long horizon manipulation in clutter, with nine robots and four objects.</div>
         </div>
@@ -198,129 +213,92 @@
           <div class="video-caption">We trained our models on data collected in MujoCo. (This video is of an older version.)</div>
         </div>
       </div>
-      <h2 class="subtitle has-text-centered video-subtitle">
-        Balancing flow-matching discrete-continuous co-generation with scalable multi-robot motion planning enables flexible multi-robot manipulation.
-      </h2>
     </div>
   </div>
 </section>
 
-<section class="hero is-light is-small" style="max-width:1200px; margin:1rem auto;">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Model Variants Comparison</h2>
-      <div class="generation-videos-container">
-        <div class="generation-video-item dc-contribution">
-          <video autoplay muted loop playsinline>
-            <source src="./static/videos/dc_iteration_000_generation_animation.mp4" type="video/mp4">
-          </video>
-            <div class="generation-video-caption">
-              <h4 class="title is-5">GCo-DC <br>(Discrete-Continuous)</h4>
-              <p>Co-generates discrete contact points and continuous manipulation trajectories.</p>
-            </div>
-          </div>
-          <div class="generation-video-item cc-variant">
-            <video autoplay muted loop playsinline>
-              <source src="./static/videos/cc_iteration_000_generation_animation.mp4" type="video/mp4">
-            </video>
-            <div class="generation-video-caption">
-              <h4 class="title is-5">GCo-CC <br>(Continuous-Continuous)</h4>
-              <p>Co-generates continuous contact formations and continuous manipulation trajectories.</p>
-            </div>
-          </div>
-          <div class="generation-video-item ct-variant">
-            <video autoplay muted loop playsinline>
-              <source src="./static/videos/ct_iteration_000_generation_animation.mp4" type="video/mp4">
-            </video>
-            <div class="generation-video-caption">
-              <h4 class="title is-5">GCo-CT <br>(Continuous-Trajectory)</h4>
-              <p>Generates only an unconstrained continuous trajectory. The first configuration of the trajectory is treated as the contact point.</p>
-            </div>
-          </div>
-        </div>
-        <div class="generation-footnote">
-          <p><strong>Note:</strong> In these animations of GCo-DC and GCo-CC, trajectories are translated to begin at the contact points for visualization purposes. In practice, trajectories are generated with their initial configurations being the origin.</p>
-          <ul>
-            <li><strong>GCo-DC:</strong> Contact points are chosen from the perceived space as discrete choices over pixels.</li>
-            <li><strong>GCo-CC:</strong> Contact points remain unconstrained in the continuous space.</li>
-            <li><strong>GCo-CT:</strong> No explicit co-generation of contact formations.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
+<!-- Manipulation success summary (single / multi-object) -->
 <section class="section" style="max-width:1200px; margin:1rem auto;">
   <div class="container is-max-desktop">
-
-    <!-- Experimentation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width has-text-centered">
-        <h2 class="title is-3">Flow-Matching Co-Generation</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            <img src="./static/images/model_ill3.png" width="50%"
-            class="model-illustration-image"
-            alt="Model illustration."/>
-            Our flow-matching co-generation framework addresses the fundamental challenge of jointly reasoning about contact formation and manipulation trajectories. The model takes visual observations of the environment, a robot budget, and a required transformation for the observed object, and co-generates discrete contact points alongside continuous manipulation trajectories. This dual representation ties contact planning to the perceptual space, avoiding reasoning over large continuous spaces unnecessarily, while maintaining flexibility for generating smooth manipulation trajectories.
-          </p>
-        </div>
+    <h2 class="title is-3 has-text-centered">Manipulation Experimental Results</h2>
+    <p> This section includes compiled success rates for single-object and multi-object manipulation experiments. All experiments require objects to arrive at specified poses (translation and orientation). We notice a clear gradient in performance (and color!): GCo-DC performs most robustly, then GCo-CC and GCo-CT, and finally baselines. We include a model comparison (DC, CC, CT) lower in the page, and more results in our manuscript.</p>
+    <br>
+    <div class="columns is-multiline is-variable is-1">
+      <div class="column is-half has-text-centered">
+        <figure>
+          <img src="./static/images/manip_success_single_obj.png" alt="Single-object manipulation success" style="max-width:100%; height:auto;">
+          <figcaption class="has-text-weight-semibold" style="margin-top:.5rem;">Single-object multi-robot manipulation.</figcaption>
+        </figure>
+      </div>
+      <div class="column is-half has-text-centered">
+        <figure>
+          <img src="./static/images/manip_success_multi_obj.png" alt="Multi-object manipulation success" style="max-width:100%; height:auto;">
+          <figcaption class="has-text-weight-semibold" style="margin-top:.5rem;">Multi-object multi-robot manipulation.</figcaption>
+        </figure>
       </div>
     </div>
-    <!--/ Experimentation. -->
-
-    <div class="columns is-centered">
-      <!-- Manipulation Tasks. -->
-      <div class="column">
-        <div class="content">
-          <h3 class="title is-3">Collaborative</h3>
-          <img src="./static/images/closeup.png"
-              class="collaborative-image"
-              alt="Collaborative result."/>
-          <p>
-            Our approach enables collaboration between multiple robots for manipulating multiple objects. GCo handles scenarios where the number of objects is greater than the number of robots and vice versa.
-          </p>
-        </div>
-      </div>
-
-      <div class="column">
-        <h3 class="title is-3">Long-Horizon</h3>
-        <div class="columns is-centered">
-          <div class="column content">
-            <img src="./static/images/slalom_env_crop.png"
-                 class="long-horizon-image"
-                 alt="Long-horizon result."/>
-            <p>
-              The framework can handle long-horizon manipulation tasks in complex, cluttered environments. GC0 does so by learning the portions that are hard to model with flow-matching co-generation, and planning those that can be modeled well (object and robot non-interacting motions) with scalable motion planning.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--/ Manipulation tasks. -->
-
-
+    <p class="has-text-centered is-size-6" style="margin-top:.75rem;">Model variants: <b>DC</b> = Discrete-Continuous, <b>CC</b> = Continuous-Continuous, <b>CT</b> = Continuous-Threshold. Higher values indicate better success. The number of robots available to each method is  with the number following its name (e.g., 1, 2, 3, 6, or 9).</p>
   </div>
 </section>
+
+
+<!-- Manipulation shape variability -->
+<section class="section" style="max-width:1200px; margin:1rem auto;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Out-Of-Distribution Manipulation Results</h2>
+    <p> We hae trained our flow-matching co-generation models on cylinders and boxes of varying sizes. In these experiments, we evaluate the models' ability to generalize to shapes and sizes that are significantly different from those seen during training. In particular, we conducted two test suites (120 runs overall), where we varied object shapes from familiar rectangles to non-convex general polygons (as seen below) and required robot to be moved the objects to specified translations and rotations.</p>
+    <br>
+    <div class="has-text-centered">
+    <video autoplay muted loop playsinline style="width:70%; height:auto;">
+      <source src="./static/videos/shape_variation.mp4" type="video/mp4">
+    </video>
+    </div>
+      <div class="video-matrix">
+        <div class="video-item">
+          <video poster="" autoplay muted loop playsinline>
+            <source src="./static/videos/object_variation_placeholder.mp4" type="video/mp4">
+          </video>
+          <div class="video-caption">.</div>
+        </div>
+        <div class="video-item">
+          <video poster="" autoplay muted loop playsinline>
+            <source src="./static/videos/object_variation_placeholder.mp4" type="video/mp4">
+          </video>
+          <div class="video-caption">.</div>
+        </div>
+        <div class="video-item">
+          <video poster="" autoplay muted loop playsinline>
+            <source src="./static/videos/object_variation_placeholder.mp4" type="video/mp4">
+          </video>
+          <div class="video-caption">.</div>
+        </div>
+        <div class="video-item">
+          <video poster="" autoplay muted loop playsinline>
+            <source src="./static/videos/object_variation_placeholder.mp4" type="video/mp4" scale="0.5">
+          </video>
+          <div class="video-caption">.</div>
+        </div>
+      </div>
+  </div>
+</section>
+
 
 
 <!-- <section class="section" id="BibTeX">
 </section> -->
+
+<!-- AMRMP Results. -->
 <section class="section" style="max-width:1200px; margin:1rem auto;">
   <div class="container is-max-desktop">
     <!-- Experiments video grid. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered">Experimental Results: Anonymous Multi-Robot Motion Planning</h2>
+        <h2 class="title is-3 has-text-centered">Anonymous Multi-Robot Motion Planning</h2>
         <img src="./static/videos/test_15_114.gif" width="80%"
             class="model-illustration-image"
             alt="Gspi visualization."/>
         <br>
-        <p>In this work, one of our contributions is <b>Gspi</b>, an anonymous multi-robot motion planner. This section visualizes our experimental analysis of Gspi. In all tests, the initial assignment of robots to goals is random, and experiments have been repeated multiple times to ensure reliability. In some tests, we varied the number of robots to assess scalability. Please see our paper for details. Each visualization is annotated with the robot team-size within it.</p>
+        <p>A central contributions of our work is <b>Gspi</b>, an anonymous multi-robot motion planner. This section visualizes our experimental analysis of Gspi. In all tests, the initial assignment of robots to goals is random, and experiments have been repeated multiple times to ensure reliability. In some tests, we varied the number of robots to assess scalability. Please see our paper for details. Each visualization is annotated with the robot team-size within it.</p>
         <br>
         <div class="has-text-centered" style="margin-bottom: 1rem;">
           <button id="toggle-rates" class="button is-small is-dark">Show success rates</button>
@@ -571,8 +549,109 @@
     </script>
   </div>
 </section>
-    <!-- Abstract. -->
 
+<!-- Some images and talking about co-generation.-->
+<section class="section" style="max-width:1200px; margin:1rem auto;">
+  <div class="container is-max-desktop">
+
+    <!-- Experimentation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width has-text-centered">
+        <h2 class="title is-3">Flow-Matching Co-Generation</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            <img src="./static/images/model_ill3.png" width="50%"
+            class="model-illustration-image"
+            alt="Model illustration."/>
+            Our flow-matching co-generation framework addresses the fundamental challenge of jointly reasoning about contact formation and manipulation trajectories. The model takes visual observations of the environment, a robot budget, and a required transformation for the observed object, and co-generates discrete contact points alongside continuous manipulation trajectories. This dual representation ties contact planning to the perceptual space, avoiding reasoning over large continuous spaces unnecessarily, while maintaining flexibility for generating smooth manipulation trajectories.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Experimentation. -->
+
+    <div class="columns is-centered">
+      <!-- Manipulation Tasks. -->
+      <div class="column">
+        <div class="content">
+          <h3 class="title is-3">Collaborative</h3>
+          <img src="./static/images/closeup.png"
+              class="collaborative-image"
+              alt="Collaborative result."/>
+          <p>
+            Our approach enables collaboration between multiple robots for manipulating multiple objects. GCo handles scenarios where the number of objects is greater than the number of robots and vice versa.
+          </p>
+        </div>
+      </div>
+
+      <div class="column">
+        <h3 class="title is-3">Long-Horizon</h3>
+        <div class="columns is-centered">
+          <div class="column content">
+            <img src="./static/images/slalom_env_crop.png"
+                 class="long-horizon-image"
+                 alt="Long-horizon result."/>
+            <p>
+              The framework can handle long-horizon manipulation tasks in complex, cluttered environments. GC0 does so by learning the portions that are hard to model with flow-matching co-generation, and planning those that can be modeled well (object and robot non-interacting motions) with scalable motion planning.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Manipulation tasks. -->
+  </div>
+</section>
+
+
+<!-- Model Variants Comparison. -->
+<section class="hero is-light is-small" style="max-width:1200px; margin:1rem auto;">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Model Variants Comparison</h2>
+      <div class="generation-videos-container">
+        <div class="generation-video-item dc-contribution">
+          <video autoplay muted loop playsinline>
+            <source src="./static/videos/dc_iteration_000_generation_animation.mp4" type="video/mp4">
+          </video>
+            <div class="generation-video-caption">
+              <h4 class="title is-5">GCo-DC <br>(Discrete-Continuous)</h4>
+              <p>Co-generates discrete contact points and continuous manipulation trajectories.</p>
+            </div>
+          </div>
+          <div class="generation-video-item cc-variant">
+            <video autoplay muted loop playsinline>
+              <source src="./static/videos/cc_iteration_000_generation_animation.mp4" type="video/mp4">
+            </video>
+            <div class="generation-video-caption">
+              <h4 class="title is-5">GCo-CC <br>(Continuous-Continuous)</h4>
+              <p>Co-generates continuous contact formations and continuous manipulation trajectories.</p>
+            </div>
+          </div>
+          <div class="generation-video-item ct-variant">
+            <video autoplay muted loop playsinline>
+              <source src="./static/videos/ct_iteration_000_generation_animation.mp4" type="video/mp4">
+            </video>
+            <div class="generation-video-caption">
+              <h4 class="title is-5">GCo-CT <br>(Continuous-Trajectory)</h4>
+              <p>Generates only an unconstrained continuous trajectory. The first configuration of the trajectory is treated as the contact point.</p>
+            </div>
+          </div>
+        </div>
+        <div class="generation-footnote">
+          <p><strong>Note:</strong> In these animations of GCo-DC and GCo-CC, trajectories are translated to begin at the contact points for visualization purposes. In practice, trajectories are generated with their initial configurations being the origin.</p>
+          <ul>
+            <li><strong>GCo-DC:</strong> Contact points are chosen from the perceived space as discrete choices over pixels.</li>
+            <li><strong>GCo-CC:</strong> Contact points remain unconstrained in the continuous space.</li>
+            <li><strong>GCo-CT:</strong> No explicit co-generation of contact formations.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract -->
 <section class="section" style="max-width:1200px; margin:1rem auto;">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
