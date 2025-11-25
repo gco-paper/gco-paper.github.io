@@ -256,17 +256,17 @@ In this work, we propose a unified framework for collaborative multi-robot, mult
       <div class="video-matrix">
         <div class="video-item">
           <video poster="" autoplay muted loop playsinline>
-            <source src="./static/videos/object_variation_placeholder.mp4" type="video/mp4">
+            <source src="./static/videos/variation_free_1_2.mp4" type="video/mp4">
           </video>
-          <div class="video-caption">.</div>
+          <div class="video-caption">Heavy noise in free space. The object goals are initially assigned in a shuffled manner. GCo reassigns goals effectively and ends up sending each object to a nearby goal.</div>
         </div>
         <div class="video-item">
           <video poster="" autoplay muted loop playsinline>
-            <source src="./static/videos/object_variation_placeholder.mp4" type="video/mp4">
+            <source src="./static/videos/variation_wall_1_2.mp4" type="video/mp4">
           </video>
-          <div class="video-caption">.</div>
+          <div class="video-caption">Heavy noise in an obstacle-laden environment. Three robots move objects to goals, despite objects being significantly out-of-distribution.</div>
         </div>
-        <div class="video-item">
+        <!-- <div class="video-item">
           <video poster="" autoplay muted loop playsinline>
             <source src="./static/videos/object_variation_placeholder.mp4" type="video/mp4">
           </video>
@@ -277,8 +277,59 @@ In this work, we propose a unified framework for collaborative multi-robot, mult
             <source src="./static/videos/object_variation_placeholder.mp4" type="video/mp4" scale="0.5">
           </video>
           <div class="video-caption">.</div>
+        </div> -->
+      </div>
+    <br>
+    <h3 class="title is-4 has-text-centered">Results Summary</h3>
+
+      <div class="columns" style="margin-top:1rem;">
+        <!-- Left: aggregated -->
+        <div class="column is-one-third has-text-centered is-flex">
+          <div class="box">
+            <h4 class="title is-5">Aggregated</h4>
+            <figure style="margin-top:.5rem;">
+              <img src="./static/images/variation/success_rate_vs_noise_level_avg_robots.png" alt="Success rate (averaged across robots)" style="max-width:100%; height:auto;">
+              <figcaption class="has-text-weight-semibold" style="margin-top:.5rem;">GCo-DC is generally robust to noise. Others decline slowly.</figcaption>
+            </figure>
+            <figure style="margin-top:1rem;">
+              <img src="./static/images/variation/cost_per_robot_vs_noise_level.png" alt="Cost per robot vs noise" style="max-width:100%; height:auto;">
+              <figcaption class="has-text-weight-semibold" style="margin-top:.5rem;">Average cost per robot increases with noise, showing slow but increased inaccuracy in execution.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Middle: simple tests -->
+        <div class="column is-one-third has-text-centered is-flex">
+          <div class="box">
+            <h4 class="title is-5">Obstacle-Free</h4>
+            <figure style="margin-top:.5rem;">
+              <img src="./static/images/variation/success_rate_vs_noise_level_empty.png" alt="Success rate on empty map" style="max-width:100%; height:auto;">
+              <figcaption class="has-text-weight-semibold" style="margin-top:.5rem;">Success rates. GCo-DC performs the best and improves with more robots.</figcaption>
+            </figure>
+            <figure style="margin-top:1rem;">
+              <img src="./static/images/variation/cost_per_robot_vs_noise_level_empty.png" alt="Cost per robot (empty)" style="max-width:100%; height:auto;">
+              <figcaption class="has-text-weight-semibold" style="margin-top:.5rem;">Cost per robot is lower when more robots are used, showing good utilization of resources.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- Right: obstacle avoidance -->
+        <div class="column is-one-third has-text-centered is-flex">
+          <div class="box">
+            <h4 class="title is-5">Obstacle Avoidance</h4>
+            <figure style="margin-top:.5rem;">
+              <img src="./static/images/variation/success_rate_vs_noise_level_wall.png" alt="Success rate with wall obstacle" style="max-width:100%; height:auto;">
+              <figcaption class="has-text-weight-semibold" style="margin-top:.5rem;">More difficult tests lead to more variability in performance. GCO-DC still solves 75% of problems.</figcaption>
+            </figure>
+            <figure style="margin-top:1rem;">
+              <img src="./static/images/variation/cost_per_robot_vs_noise_level_wall.png" alt="Cost per robot (wall)" style="max-width:100%; height:auto;">
+              <figcaption class="has-text-weight-semibold" style="margin-top:.5rem;">Cost is higher in more complex environments where the manipulation horizon is longer.</figcaption>
+            </figure>
+          </div>
         </div>
       </div>
+
+      <p class="has-text-justified" style="margin-top:.75rem;">The plots above compare success rates and per-robot costs as observation/action noise increases. The left column shows  overall trends, while the other two columns show results split by environment type (empty vs. obstacle-laden). Together these figures illustrate how GCo handles out-of-distribution objects. We observe that GCo is surprisingly resilient to variation in object geometry and can still solve upward of 75% of problems even with maximal noise applied to objects. GCo-DC dominates other variants.</p>
   </div>
 </section>
 
@@ -493,7 +544,7 @@ In this work, we propose a unified framework for collaborative multi-robot, mult
         <h3 class="title is-4 has-text-centered">Large Scale in Open Spaces</h3>
         <p> We tested Gspi in large scale scenarios without obstacles to assess its ability to effectively swap goals between robots and streamline their movements. As always, all goals are initially assigend randomly to robots. Motions that look natural, or short, are a result of effective goal swapping.</p>
           <div class="columns is-multiline is-variable is-1">
-          <div class="column is-one-third has-text-centered">
+          <div class="column is-one-third has-text-centered is-flex">
             <div class="card">
               <div class="card-content">
                 <video autoplay muted loop playsinline style="width:100%; height:auto;">
@@ -504,7 +555,7 @@ In this work, we propose a unified framework for collaborative multi-robot, mult
             </div>
           </div>
 
-          <div class="column is-one-third has-text-centered">
+          <div class="column is-one-third has-text-centered is-flex">
             <div class="card">
               <div class="card-content">
                 <video autoplay muted loop playsinline style="width:100%; height:auto;">
@@ -515,7 +566,7 @@ In this work, we propose a unified framework for collaborative multi-robot, mult
             </div>
           </div>
 
-          <div class="column is-one-third has-text-centered">
+          <div class="column is-one-third has-text-centered is-flex">
             <div class="card">
               <div class="card-content">
                 <video autoplay muted loop playsinline style="width:100%; height:auto;">
