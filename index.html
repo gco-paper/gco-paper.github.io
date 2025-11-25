@@ -160,11 +160,13 @@
           <source src="./static/videos/gco_video_supp.mp4" 
                   type="video/mp4">
       </video>
+<br>
+<br>
       <h2 class="subtitle">
 In this work, we propose a unified framework for collaborative multi-robot, multi-object non-prehensile manipulation that combines flow-matching co-generation with anonymous multi-robot motion planning. Our contributions are mainly: 
 <br>
 <br>
-<li> The Generative Collaboration (<b>GCo</b>) framework, which interleaves generative modeling with model-based planning to exploit known structure while learning components that are difficult to model, and </li>
+<li> The Generative Collaboration (<b>GCo</b>) framework, which interleaves generative modeling with model-based planning to exploit known structure while learning components that are difficult to model. </li>
 <br>
 <br>
 <li> The Goal Swapping with Priority Inheritance (<b>Gspi</b>) algorithm, an anonymous multi-robot motion planner that supports <b>GCo</b> by planning object motions that make progress toward their goals and robot motions that reach the generated contact points.
@@ -206,9 +208,9 @@ In this work, we propose a unified framework for collaborative multi-robot, mult
           </video>
           <div class="video-caption">Five robots manipulate three objects. Robots avoid a wall and switch objects as necessary</div>
         </div>
-        <div class="video-item">
-          <video poster="" autoplay muted loop playsinline>
-            <source src="./static/videos/mj_slalom_small_r3o1.mp4" type="video/mp4" scale="0.5">
+        <div class="video-item" style="display:flex; flex-direction:column; align-items:center;">
+          <video poster="" autoplay muted loop playsinline style="width:60%; height:auto;">
+            <source src="./static/videos/mj_slalom_small_r3o1.mp4" type="video/mp4">
           </video>
           <div class="video-caption">We trained our models on data collected in MujoCo. (This video is of an older version.)</div>
         </div>
@@ -252,13 +254,15 @@ In this work, we propose a unified framework for collaborative multi-robot, mult
     <video autoplay muted loop playsinline style="width:70%; height:auto;">
       <source src="./static/videos/shape_variation.mp4" type="video/mp4">
     </video>
+    <div class="video-caption" style="margin-top:-3.5rem;">We generated out-of-distribution object shapes by progressively deforming eight vertices placed initially as a rectangle. We also experiment with "T" shapes, as seen below.</div>
+    <br>
     </div>
       <div class="video-matrix">
         <div class="video-item">
           <video poster="" autoplay muted loop playsinline>
-            <source src="./static/videos/variation_free_1_2.mp4" type="video/mp4">
+            <source src="./static/videos/variation_walls9_T.mp4" type="video/mp4">
           </video>
-          <div class="video-caption">Heavy noise in free space. The object goals are initially assigned in a shuffled manner. GCo reassigns goals effectively and ends up sending each object to a nearby goal.</div>
+          <div class="video-caption">GCo is able to properly move and rotate unseen objects ("T" shapes and deformed rectangles) in clutter.</div>
         </div>
         <div class="video-item">
           <video poster="" autoplay muted loop playsinline>
@@ -266,18 +270,18 @@ In this work, we propose a unified framework for collaborative multi-robot, mult
           </video>
           <div class="video-caption">Heavy noise in an obstacle-laden environment. Three robots move objects to goals, despite objects being significantly out-of-distribution.</div>
         </div>
-        <!-- <div class="video-item">
+        <div class="video-item">
           <video poster="" autoplay muted loop playsinline>
-            <source src="./static/videos/object_variation_placeholder.mp4" type="video/mp4">
+            <source src="./static/videos/variation_walls_nonoise.mp4" type="video/mp4" scale="0.5">
           </video>
-          <div class="video-caption">.</div>
+          <div class="video-caption">While GCo performs robustly with out-of-distribution objects, stability is predictably better in-distribution.</div>
         </div>
         <div class="video-item">
           <video poster="" autoplay muted loop playsinline>
-            <source src="./static/videos/object_variation_placeholder.mp4" type="video/mp4" scale="0.5">
+            <source src="./static/videos/variation_free_1_2.mp4" type="video/mp4">
           </video>
-          <div class="video-caption">.</div>
-        </div> -->
+          <div class="video-caption">Heavy noise in free space. The object goals are initially assigned in a shuffled manner. GCo reassigns goals effectively and ends up sending each object to a nearby goal.</div>
+        </div>
       </div>
     <br>
     <h3 class="title is-4 has-text-centered">Results Summary</h3>
@@ -329,7 +333,7 @@ In this work, we propose a unified framework for collaborative multi-robot, mult
         </div>
       </div>
 
-      <p class="has-text-justified" style="margin-top:.75rem;">The plots above compare success rates and per-robot costs as observation/action noise increases. The left column shows  overall trends, while the other two columns show results split by environment type (empty vs. obstacle-laden). Together these figures illustrate how GCo handles out-of-distribution objects. We observe that GCo is surprisingly resilient to variation in object geometry and can still solve upward of 75% of problems even with maximal noise applied to objects. GCo-DC dominates other variants.</p>
+      <p class="has-text-justified" style="margin-top:.75rem;">The plots above compare success rates and per-robot costs as object shape noise increases. The left column shows  overall trends, while the other two columns show results split by environment type (empty vs. obstacle-laden). Together these figures illustrate how GCo handles out-of-distribution objects. We observe that GCo is surprisingly resilient to variation in object geometry and can still solve upward of 75% of problems even with maximal noise applied to objects. GCo-DC dominates other variants.</p>
   </div>
 </section>
 
