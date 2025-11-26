@@ -212,7 +212,7 @@ In this work, we propose a unified framework for collaborative multi-robot, mult
           <video poster="" autoplay muted loop playsinline style="width:60%; height:auto;">
             <source src="./static/videos/mj_slalom_small_r3o1.mp4" type="video/mp4">
           </video>
-          <div class="video-caption">We trained our models on data collected in MujoCo. (This video is of an older version.)</div>
+          <div class="video-caption">We trained our models on data collected in MuJoCo.</div>
         </div>
       </div>
     </div>
@@ -248,7 +248,7 @@ In this work, we propose a unified framework for collaborative multi-robot, mult
 <section class="section" style="max-width:1200px; margin:1rem auto;">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Out-Of-Distribution Manipulation Results</h2>
-    <p> We hae trained our flow-matching co-generation models on cylinders and boxes of varying sizes. In these experiments, we evaluate the models' ability to generalize to shapes and sizes that are significantly different from those seen during training. In particular, we conducted two test suites (120 runs overall), where we varied object shapes from familiar rectangles to non-convex general polygons (as seen below) and required robot to be moved the objects to specified translations and rotations.</p>
+    <p> We have trained our flow-matching co-generation models on cylinders and boxes of varying sizes. In these experiments, we evaluate the models' ability to generalize to shapes and sizes that are significantly different from those seen during training. In particular, we conducted two test suites (120 runs overall), where we varied object shapes from familiar rectangles to non-convex general polygons and "T" shapes (as seen below) and required robots to move the objects to specified translations and rotations.</p>
     <br>
     <div class="has-text-centered">
     <video autoplay muted loop playsinline style="width:70%; height:auto;">
@@ -280,7 +280,7 @@ In this work, we propose a unified framework for collaborative multi-robot, mult
           <video poster="" autoplay muted loop playsinline>
             <source src="./static/videos/variation_free_1_2.mp4" type="video/mp4">
           </video>
-          <div class="video-caption">Heavy noise in free space. The object goals are initially assigned in a shuffled manner. GCo reassigns goals effectively and ends up sending each object to a nearby goal.</div>
+          <div class="video-caption">Heavy noise in free space. The object goals are initially assigned in a shuffled manner. GCo reassigns goals effectively and ends up pairing each object with a nearby goal.</div>
         </div>
       </div>
     <br>
@@ -353,7 +353,7 @@ In this work, we propose a unified framework for collaborative multi-robot, mult
             class="model-illustration-image"
             alt="Gspi visualization."/>
         <br>
-        <p>A central contributions of our work is <b>Gspi</b>, an anonymous multi-robot motion planner. This section visualizes our experimental analysis of Gspi. In all tests, the initial assignment of robots to goals is random, and experiments have been repeated multiple times to ensure reliability. In some tests, we varied the number of robots to assess scalability. Please see our paper for details. Each visualization is annotated with the robot team-size within it.</p>
+        <p>A central contributions of our work is <b>Gspi</b>, an anonymous multi-robot motion planner. This section visualizes our experimental analysis of Gspi. In all tests, the initial assignment of robots to goals is random, and experiments have been repeated multiple times to ensure reliability. In most tests, we varied the number of robots to assess scalability. Please see our paper for details. Each visualization is annotated with the robot team-size within it.</p>
         <br>
         <div class="has-text-centered" style="margin-bottom: 1rem;">
           <button id="toggle-rates" class="button is-small is-dark">Show success rates</button>
@@ -362,7 +362,7 @@ In this work, we propose a unified framework for collaborative multi-robot, mult
 
         <!-- Row 1: Large Scale in Open Spaces -->
         <h3 class="title is-4 has-text-centered">Stress Tests</h3>
-        <p>These are a few tests that push the limits of Gspi -- specifically attempting to test it in scenarios that require robustness to extreme robot and obstacle densities.</p>
+        <p>These are a few tests that push the limits of Gspi - specifically attempting to test it in scenarios that require robustness to extreme robot and obstacle densities.</p>
           <div class="columns is-multiline is-variable is-1">
           <div class="column is-one-third has-text-centered">
             <div class="card">
@@ -546,7 +546,7 @@ In this work, we propose a unified framework for collaborative multi-robot, mult
 
         <!-- Row 1: Large Scale in Open Spaces -->
         <h3 class="title is-4 has-text-centered">Large Scale in Open Spaces</h3>
-        <p> We tested Gspi in large scale scenarios without obstacles to assess its ability to effectively swap goals between robots and streamline their movements. As always, all goals are initially assigend randomly to robots. Motions that look natural, or short, are a result of effective goal swapping.</p>
+        <p> We tested Gspi in large scale scenarios without obstacles to assess its ability to effectively swap goals between robots and streamline their movements. As always, all goals were initially assigend randomly to robots. Motions that look natural, or short, are a result of effective goal swapping.</p>
           <div class="columns is-multiline is-variable is-1">
           <div class="column is-one-third has-text-centered is-flex">
             <div class="card">
@@ -648,7 +648,7 @@ In this work, we propose a unified framework for collaborative multi-robot, mult
                  class="long-horizon-image"
                  alt="Long-horizon result."/>
             <p>
-              The framework can handle long-horizon manipulation tasks in complex, cluttered environments. GC0 does so by learning the portions that are hard to model with flow-matching co-generation, and planning those that can be modeled well (object and robot non-interacting motions) with scalable motion planning.
+              The framework can handle long-horizon manipulation tasks in complex, cluttered environments. GCo does so by leverages flow-matching co-generation for learning the portions that are hard to model, and turns to sclable planning for those that can be modeled well (object and robot non-interacting motions).
             </p>
           </div>
         </div>
